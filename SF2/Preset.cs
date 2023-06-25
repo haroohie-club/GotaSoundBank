@@ -1,17 +1,13 @@
 ﻿using GotaSoundIO.IO;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GotaSoundBank.SF2 {
-
+namespace GotaSoundBank.SF2
+{
     /// <summary>
     /// Instrument, or preset.
     /// </summary>
-    public class Preset : IReadable, IWriteable {
-
+    public class Preset : IReadable, IWriteable
+    {
         /// <summary>
         /// Preset name.
         /// </summary>
@@ -66,10 +62,12 @@ namespace GotaSoundBank.SF2 {
         /// Get a list of all the zones.
         /// </summary>
         /// <returns>The zones.</returns>
-        public List<Zone> GetAllZones() {
+        public List<Zone> GetAllZones()
+        {
             List<Zone> ret = new List<Zone>();
             if (GlobalZone != null) { ret.Add(GlobalZone); }
-            foreach (var z in Zones) {
+            foreach (var z in Zones)
+            {
                 ret.Add(z);
             }
             return ret;
@@ -79,7 +77,8 @@ namespace GotaSoundBank.SF2 {
         /// Read the preset.
         /// </summary>
         /// <param name="r">The reader.</param>
-        public void Read(FileReader r) {
+        public void Read(FileReader r)
+        {
             Name = r.ReadFixedString(20);
             PresetNumber = r.ReadUInt16();
             Bank = r.ReadUInt16();
@@ -93,7 +92,8 @@ namespace GotaSoundBank.SF2 {
         /// Write the preset.
         /// </summary>
         /// <param name="w">The writer.</param>
-        public void Write(FileWriter w) {
+        public void Write(FileWriter w)
+        {
             w.WriteFixedString(Name, 20);
             w.Write(PresetNumber);
             w.Write(Bank);
@@ -102,7 +102,5 @@ namespace GotaSoundBank.SF2 {
             w.Write(Genre);
             w.Write(Morphology);
         }
-
     }
-
 }

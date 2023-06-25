@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace GotaSoundBank.DLS {
-    
+namespace GotaSoundBank.DLS
+{
     /// <summary>
     /// Instrument.
     /// </summary>
-    public class Instrument {
-
+    public class Instrument
+    {
         /// <summary>
         /// Instrument name.
         /// </summary>
@@ -29,8 +25,6 @@ namespace GotaSoundBank.DLS {
         /// <summary>
         /// Regions.
         /// </summary>
-        public List<Region> Regions = new List<Region>();
-
+        public List<Region> Regions = new();
     }
-
 }

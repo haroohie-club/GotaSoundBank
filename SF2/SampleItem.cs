@@ -1,18 +1,14 @@
 ﻿using GotaSoundIO.IO;
 using GotaSoundIO.Sound;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GotaSoundBank.SF2 {
-    
+namespace GotaSoundBank.SF2
+{
     /// <summary>
     /// A sample item.
     /// </summary>
-    public class SampleItem : IReadable, IWriteable {
-
+    public class SampleItem : IReadable, IWriteable
+    {
         /// <summary>
         /// Sample name.
         /// </summary>
@@ -52,7 +48,8 @@ namespace GotaSoundBank.SF2 {
         /// Read the sample item. Set current offset to start of wave table in advance!
         /// </summary>
         /// <param name="r">The reader.</param>
-        public void Read(FileReader r) {
+        public void Read(FileReader r)
+        {
             Name = r.ReadFixedString(20);
             uint startSample = r.ReadUInt32();
             uint endSample = r.ReadUInt32();
@@ -64,7 +61,8 @@ namespace GotaSoundBank.SF2 {
             r.Position = bak;
             Wave.LoopStart = r.ReadUInt32();
             Wave.LoopEnd = r.ReadUInt32();
-            if (Wave.LoopEnd != 0) {
+            if (Wave.LoopEnd != 0)
+            {
                 Wave.LoopStart -= startSample;
                 Wave.LoopEnd -= startSample;
             }
@@ -82,8 +80,8 @@ namespace GotaSoundBank.SF2 {
         /// Write the sample item. Set the current offset to the start of the wave in advance! Also push into the structure offsets the start of the wave table!
         /// </summary>
         /// <param name="w">The writer.</param>
-        public void Write(FileWriter w) {
-
+        public void Write(FileWriter w)
+        {
             //Wave table start.
             long waveTableStart = w.StructureOffsets.Pop();
 
@@ -105,9 +103,6 @@ namespace GotaSoundBank.SF2 {
             ushort val = (ushort)LinkType;
             if (IsRomType) { val |= 0b1000000000000000; }
             w.Write(val);
-
         }
-
     }
-
 }

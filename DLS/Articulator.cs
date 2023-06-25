@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace GotaSoundBank.DLS {
-    
+namespace GotaSoundBank.DLS
+{
     /// <summary>
     /// Articulator.
     /// </summary>
-    public class Articulator {
-
+    public class Articulator
+    {
         /// <summary>
         /// Connections.
         /// </summary>
         public List<Connection> Connections = new List<Connection>();
-
     }
 
     /// <summary>
     /// Connection.
     /// </summary>
-    public class Connection {
-
+    public class Connection
+    {
         /// <summary>
         /// Source connection.
         /// </summary>
@@ -47,13 +42,13 @@ namespace GotaSoundBank.DLS {
         /// Scale of articulation.
         /// </summary>
         public int Scale;
-
     }
 
     /// <summary>
     /// Source connection.
     /// </summary>
-    public enum SourceConnection : ushort { 
+    public enum SourceConnection : ushort
+    {
         None, LFO, KeyOnVelocity, KeyNumber, EnvelopeGenerator1, EnvelopeGenerator2, PitchWheel, PolyPressure, ChannelPressure, Vibrato,
         Modulation = 0x81, ChannelVolume = 0x87, Pan = 0x8A, Expression, ChorusSend = 0xDB, ReverbSend = 0xDD,
         PitchBendRange = 0x100, FineTune, CoarseTune
@@ -62,7 +57,8 @@ namespace GotaSoundBank.DLS {
     /// <summary>
     /// Destination connection.
     /// </summary>
-    public enum DestinationConnection : ushort {
+    public enum DestinationConnection : ushort
+    {
         None, Gain, Reserved, Pitch, Pan, KeyNumber,
         Left = 0x10, Right, Center, LFEChannel, LeftRear, RightRear, Chorus = 0x80, Reverb,
         LFOFrequency = 0x104, LFOStartDelayTime,
@@ -73,8 +69,8 @@ namespace GotaSoundBank.DLS {
     /// <summary>
     /// Transform connection.
     /// </summary>
-    public enum TransformConnection : ushort {
+    public enum TransformConnection : ushort
+    {
         None, Concave, Convex, Switch
     }
-
 }

@@ -1,17 +1,12 @@
 ﻿using GotaSoundIO.IO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GotaSoundBank.SF2 {
-    
+namespace GotaSoundBank.SF2
+{
     /// <summary>
     /// Modulator.
     /// </summary>
-    public class Modulator : IReadable, IWriteable {
-
+    public class Modulator : IReadable, IWriteable
+    {
         /// <summary>
         /// Source.
         /// </summary>
@@ -41,7 +36,8 @@ namespace GotaSoundBank.SF2 {
         /// Read the modulator.
         /// </summary>
         /// <param name="r">The reader.</param>
-        public void Read(FileReader r) {
+        public void Read(FileReader r)
+        {
             Source = (SF2Modulators)r.ReadUInt16();
             Destination = (SF2Generators)r.ReadUInt16();
             Amount = r.ReadInt16();
@@ -53,14 +49,13 @@ namespace GotaSoundBank.SF2 {
         /// Write the modulator.
         /// </summary>
         /// <param name="w">The writer.</param>
-        public void Write(FileWriter w) {
+        public void Write(FileWriter w)
+        {
             w.Write((ushort)Source);
             w.Write((ushort)Destination);
             w.Write(Amount);
             w.Write((ushort)AmountSource);
             w.Write((ushort)Transform);
         }
-
     }
-
 }

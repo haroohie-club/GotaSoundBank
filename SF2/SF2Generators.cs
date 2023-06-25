@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GotaSoundBank.SF2 {
-
+﻿namespace GotaSoundBank.SF2
+{
     /// <summary>
     /// Generators.
     /// </summary>
-    public enum SF2Generators : ushort {
+    public enum SF2Generators : ushort
+    {
         StartAddrsOffset = 0,
         EndAddrsOffset = 1,
         StartloopAddrsOffset = 2,
@@ -64,5 +59,4 @@ namespace GotaSoundBank.SF2 {
         OverridingRootKey = 58, // 0x003A
         EndOper = 60 // 0x003C
     }
-
 }

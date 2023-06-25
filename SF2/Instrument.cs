@@ -1,17 +1,13 @@
 ﻿using GotaSoundIO.IO;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GotaSoundBank.SF2 {
-    
+namespace GotaSoundBank.SF2
+{
     /// <summary>
     /// An instrument.
     /// </summary>
-    public class Instrument : IReadable, IWriteable {
-
+    public class Instrument : IReadable, IWriteable
+    {
         /// <summary>
         /// Instrument name.
         /// </summary>
@@ -41,10 +37,12 @@ namespace GotaSoundBank.SF2 {
         /// Get a list of all the zones.
         /// </summary>
         /// <returns>The zones.</returns>
-        public List<Zone> GetAllZones() {
+        public List<Zone> GetAllZones()
+        {
             List<Zone> ret = new List<Zone>();
             if (GlobalZone != null) { ret.Add(GlobalZone); }
-            foreach (var z in Zones) {
+            foreach (var z in Zones)
+            {
                 ret.Add(z);
             }
             return ret;
@@ -54,7 +52,8 @@ namespace GotaSoundBank.SF2 {
         /// Read the instrument.
         /// </summary>
         /// <param name="r">The reader.</param>
-        public void Read(FileReader r) {
+        public void Read(FileReader r)
+        {
             Name = r.ReadFixedString(20);
             ReadingBagIndex = r.ReadUInt16();
         }
@@ -63,11 +62,10 @@ namespace GotaSoundBank.SF2 {
         /// Write the instrument.
         /// </summary>
         /// <param name="w">The writer.</param>
-        public void Write(FileWriter w) {
+        public void Write(FileWriter w)
+        {
             w.WriteFixedString(Name, 20);
             w.Write(ReadingBagIndex);
         }
-
     }
-
 }

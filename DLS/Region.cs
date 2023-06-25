@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace GotaSoundBank.DLS {
-    
+namespace GotaSoundBank.DLS
+{
     /// <summary>
     /// Region.
     /// </summary>
-    public class Region {
-
+    public class Region
+    {
         /// <summary>
         /// Low note.
         /// </summary>
@@ -119,8 +115,6 @@ namespace GotaSoundBank.DLS {
         /// <summary>
         /// Articulators.
         /// </summary>
-        public List<Articulator> Articulators = new List<Articulator>();
-
+        public List<Articulator> Articulators = new();
     }
-
 }
